@@ -1,3 +1,6 @@
+export const AUTH_NAVIGATOR = 'AuthNavigator';
+export const HOME_NAVIGATOR = 'TabNavigator';
+
 export enum AuthScreens {
   ForgotPassword = 'ForgotPassword',
   Login = 'Login',

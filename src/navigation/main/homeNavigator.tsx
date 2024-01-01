@@ -16,3 +16,5 @@ const HomeNavigator = () => {
     </Stack.Navigator>
   );
 };
+
+export default HomeNavigator;

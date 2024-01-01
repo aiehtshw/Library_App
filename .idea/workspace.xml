@@ -5,24 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="274a80bb-5d05-4b1d-8ee1-005989c3725d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/navigation/auth/authNavigator.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/navigation/main/homeNavigator.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/auth/forgotPassword/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/auth/forgotPassword/styles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/auth/login/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/auth/login/styles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/auth/signUp/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/auth/signUp/styles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/main/dashboard/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/main/dashboard/styles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/general/generalSlice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/general/generalnterface.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/auth/authNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/auth/authNavigator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/main/homeNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/main/homeNavigator.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/navigation/root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/root.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/navigation/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/main/bookDetail/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/main/bookDetail/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/splash/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/splash/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +142,7 @@
       <workItem from="1703632570976" duration="1225000" />
       <workItem from="1703634023525" duration="3317000" />
       <workItem from="1703760885866" duration="3897000" />
-      <workItem from="1703870882348" duration="3549000" />
+      <workItem from="1703870882348" duration="4220000" />
     </task>
     <servers />
   </component>
