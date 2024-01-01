@@ -1,10 +1,10 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import { GeneralState } from './generalnterface';
+import {createSlice} from '@reduxjs/toolkit';
+import {GeneralState} from './generalnterface';
 
 const REDUCER_NAME = 'General';
 
 const initialState: GeneralState = {
-  isLoggedIn: false
+  isLoggedIn: false,
 };
 
 const generalSlice = createSlice({
@@ -18,6 +18,6 @@ const generalSlice = createSlice({
   extraReducers: () => {},
 });
 
-export const { setIsLoggedIn} = generalSlice.actions;
+export const {setIsLoggedIn} = generalSlice.actions;
 
 export default generalSlice.reducer;

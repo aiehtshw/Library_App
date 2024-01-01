@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="274a80bb-5d05-4b1d-8ee1-005989c3725d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/main/homeNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/main/homeNavigator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/root.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/general/generalSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/general/generalSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/main/bookDetail/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/main/bookDetail/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +53,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "nd-codeQuality",
     "last_opened_file_path": "/Users/nejdetdalaslan/Library_App",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -66,12 +74,12 @@
       <recent name="$PROJECT_DIR$/src/utils/helpers" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.pr-quality-check">
-    <configuration name="ios" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="npm.lint">
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="ios" />
+        <script value="lint" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -119,8 +127,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.pr-quality-check" />
+        <item itemvalue="npm.lint" />
         <item itemvalue="npm.prettier" />
+        <item itemvalue="npm.pr-quality-check" />
       </list>
     </recent_temporary>
   </component>
