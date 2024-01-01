@@ -5,13 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="274a80bb-5d05-4b1d-8ee1-005989c3725d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/main/bookDetail/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/main/bookDetail/styles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/navigation/auth/authNavigator.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/navigation/main/homeNavigator.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/auth/forgotPassword/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/auth/forgotPassword/styles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/auth/login/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/auth/login/styles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/auth/signUp/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/auth/signUp/styles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/main/dashboard/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/main/dashboard/styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/root.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/main/bookDetail/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/main/bookDetail/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/splash/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/splash/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,29 +52,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/nejdetdalaslan/Library_App&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/nejdetdalaslan/Library_App/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "nd-navigationConfiguration",
+    "last_opened_file_path": "/Users/nejdetdalaslan/Library_App",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "ts.external.directory.path": "/Users/nejdetdalaslan/Library_App/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/utils/languages/locales" />
@@ -71,7 +82,7 @@
       <recent name="$PROJECT_DIR$/src/utils/helpers" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.ios">
+  <component name="RunManager" selected="npm.pr-quality-check">
     <configuration name="ios" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -122,6 +133,12 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.pr-quality-check" />
+        <item itemvalue="npm.prettier" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -135,6 +152,7 @@
       <workItem from="1703632570976" duration="1225000" />
       <workItem from="1703634023525" duration="3317000" />
       <workItem from="1703760885866" duration="3897000" />
+      <workItem from="1703870882348" duration="3549000" />
     </task>
     <servers />
   </component>
