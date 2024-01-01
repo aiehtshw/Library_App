@@ -1,4 +1,4 @@
-import {createNativeStackNavigator} from 'react-native-screens/native-stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ForgotPassword from '../../screens/auth/forgotPassword';
 import {AuthScreens, MainScreens, MainStackParamList} from '../routes';
 import Login from '../../screens/auth/login';

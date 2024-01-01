@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Splash from '../screens/splash';
-import { createNativeStackNavigator } from 'react-native-screens/native-stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { useAppSelector } from '../redux/store';
 import { AUTH_NAVIGATOR, HOME_NAVIGATOR } from './routes';
 import HomeNavigator from './main/homeNavigator';
