@@ -1,6 +1,6 @@
 import {UnknownAction, configureStore, ThunkDispatch} from '@reduxjs/toolkit';
-import rootReducer from './reducers';
 import {useSelector, TypedUseSelectorHook, useDispatch} from 'react-redux';
+import rootReducer from './reducers';
 
 const store = configureStore({
   reducer: rootReducer,

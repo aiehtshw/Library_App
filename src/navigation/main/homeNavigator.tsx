@@ -1,8 +1,5 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import ForgotPassword from '../../screens/auth/forgotPassword';
-import {AuthScreens, MainScreens, MainStackParamList} from '../routes';
-import Login from '../../screens/auth/login';
-import SignUp from '../../screens/auth/signUp';
+import {MainScreens, MainStackParamList} from '../routes';
 import Dashboard from '../../screens/main/dashboard';
 import BookDetail from '../../screens/main/bookDetail';
 

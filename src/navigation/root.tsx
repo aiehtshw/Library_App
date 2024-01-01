@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import Splash from '../screens/splash';
+import React, {useEffect, useState} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import { useAppSelector } from '../redux/store';
-import { AUTH_NAVIGATOR, HOME_NAVIGATOR } from './routes';
+import Splash from '../screens/splash';
+import {useAppSelector} from '../redux/store';
+import {AUTH_NAVIGATOR, HOME_NAVIGATOR} from './routes';
 import HomeNavigator from './main/homeNavigator';
 import AuthNavigator from './auth/authNavigator';
 
@@ -24,7 +24,7 @@ const Root = () => {
       {isLoggedIn ? (
         <RootStack.Screen name={HOME_NAVIGATOR} component={HomeNavigator} />
       ) : (
-        <RootStack.Screen name={AUTH_NAVIGATOR} component={AuthNavigator}/>
+        <RootStack.Screen name={AUTH_NAVIGATOR} component={AuthNavigator} />
       )}
     </RootStack.Navigator>
   );

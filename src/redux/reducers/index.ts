@@ -2,7 +2,7 @@ import {combineReducers} from '@reduxjs/toolkit';
 import generalSlice from './general/generalSlice';
 
 const rootReducer = combineReducers({
-  general: generalSlice
+  general: generalSlice,
 });
 
 export default rootReducer;

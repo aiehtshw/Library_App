@@ -1,12 +1,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {
-  AuthScreens,
-  AuthStackParamList,
-  MainScreens,
-  MainStackParamList,
-} from '../../../navigation/routes';
-import { NativeStackScreenProps } from 'react-native-screens/native-stack';
+import {NativeStackScreenProps} from 'react-native-screens/native-stack';
+import {MainScreens, MainStackParamList} from '../../../navigation/routes';
 
 type BookDetailProps = NativeStackScreenProps<
   MainStackParamList,
