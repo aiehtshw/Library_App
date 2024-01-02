@@ -3,6 +3,7 @@ const Labels = {
   login: 'Giriş Yap',
   signUp: 'Kayıt Ol',
   password: 'Şifre',
+  userName: 'Kullanıcı Adı',
 };
 
 export default {
