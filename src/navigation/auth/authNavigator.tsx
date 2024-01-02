@@ -8,7 +8,9 @@ const Stack = createNativeStackNavigator<AuthStackParamList>();
 
 const AuthNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName={AuthScreens.Login}>
+    <Stack.Navigator
+      initialRouteName={AuthScreens.Login}
+      screenOptions={{headerShown: false}}>
       <Stack.Screen
         name={AuthScreens.ForgotPassword}
         component={ForgotPassword}
