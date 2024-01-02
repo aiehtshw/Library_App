@@ -5,6 +5,7 @@ export type LoginInputTypes = {
 
 export type SignUpInputTypes = {
   email?: string;
+  isAdmin?: boolean;
   password?: string;
   userName?: string;
 };

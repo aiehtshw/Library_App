@@ -6,6 +6,11 @@ const Labels = {
   userName: 'Kullanıcı Adı',
 };
 
+const SignUpTexts = {
+  continueWithAdmin: 'Admin olarak devam etmek istiyorum.',
+};
+
 export default {
   ...Labels,
+  ...SignUpTexts,
 };

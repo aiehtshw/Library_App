@@ -5,6 +5,7 @@ import {AuthScreens, AuthStackParamList} from '../../../navigation/routes';
 import {LocalizedString} from '../../../utils/languages';
 import {SignUpInputTypes} from '../../../db/Types';
 import InputWithLabel from '../../../components/InputWithLabel';
+import CheckBox from '../../../components/CheckBox';
 import styles from './styles';
 
 type SignUpProps = NativeStackScreenProps<
@@ -19,6 +20,7 @@ const SignUp: React.FC<SignUpProps> = ({navigation}) => {
     },
     {
       email: '',
+      isAdmin: false,
       password: '',
       userName: '',
     },
@@ -42,6 +44,11 @@ const SignUp: React.FC<SignUpProps> = ({navigation}) => {
     },
   ];
 
+  const onCheckPress = () => {
+    updateEvent({isAdmin: !event.isAdmin});
+    console.log(event.isAdmin);
+  };
+
   const onLoginPress = () => {
     if (navigation.canGoBack()) {
       navigation.goBack();
@@ -64,6 +71,13 @@ const SignUp: React.FC<SignUpProps> = ({navigation}) => {
               </View>
             );
           })}
+        </View>
+        <View style={styles.checkBoxContainer}>
+          <CheckBox
+            onClick={onCheckPress}
+            text={LocalizedString.continueWithAdmin}
+            value={event.isAdmin}
+          />
         </View>
         <TouchableOpacity style={styles.signUpButton}>
           <Text style={styles.signUpButtonText}>{LocalizedString.signUp}</Text>
