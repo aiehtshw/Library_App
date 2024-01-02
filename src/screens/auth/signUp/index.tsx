@@ -3,9 +3,14 @@ import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import {NativeStackScreenProps} from 'react-native-screens/native-stack';
 import {AuthScreens, AuthStackParamList} from '../../../navigation/routes';
 import {LocalizedString} from '../../../utils/languages';
-import {SignUpInputTypes} from '../../../db/Types';
+import {SignUpInputTypes, UserInfo} from '../../../db/Types';
 import InputWithLabel from '../../../components/InputWithLabel';
 import CheckBox from '../../../components/CheckBox';
+import {UserTypes} from '../../../db/Enums';
+import {UserUtils} from '../../../db/UserUtils';
+import {useAppDispatch} from '../../../redux/store';
+import {setUser} from '../../../redux/reducers/user/userSlice';
+import {setIsLoggedIn} from '../../../redux/reducers/general/generalSlice';
 import styles from './styles';
 
 type SignUpProps = NativeStackScreenProps<
@@ -14,6 +19,7 @@ type SignUpProps = NativeStackScreenProps<
 >;
 
 const SignUp: React.FC<SignUpProps> = ({navigation}) => {
+  const dispatch = useAppDispatch();
   const [event, updateEvent] = useReducer(
     (prev: SignUpInputTypes, next: SignUpInputTypes) => {
       return {...prev, ...next};
@@ -28,16 +34,19 @@ const SignUp: React.FC<SignUpProps> = ({navigation}) => {
 
   const inputAreas = [
     {
+      isPassword: false,
       label: LocalizedString.eMail,
       onChangeText: (text: string) => updateEvent({email: text}),
       value: event.email,
     },
     {
+      isPassword: true,
       label: LocalizedString.password,
       onChangeText: (text: string) => updateEvent({password: text}),
       value: event.password,
     },
     {
+      isPassword: false,
       label: LocalizedString.userName,
       onChangeText: (text: string) => updateEvent({userName: text}),
       value: event.userName,
@@ -55,6 +64,29 @@ const SignUp: React.FC<SignUpProps> = ({navigation}) => {
     }
   };
 
+  const onSignUpPress = () => {
+    if (event.email && event.password && event.userName) {
+      const userInfo: UserInfo = {
+        email: event.email,
+        password: event.password,
+        title: event.isAdmin ? UserTypes.Admin : UserTypes.User,
+        userName: event.userName,
+      };
+      UserUtils.addUser(
+        userInfo,
+        () => {
+          dispatch(setUser(userInfo));
+          dispatch(setIsLoggedIn(true));
+        },
+        () => {
+          //TODO: we have this account
+        },
+      );
+    } else {
+      //TODO: error statement
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -64,6 +96,7 @@ const SignUp: React.FC<SignUpProps> = ({navigation}) => {
             return (
               <View key={index}>
                 <InputWithLabel
+                  isPassword={value.isPassword}
                   label={value.label}
                   onChangeText={value.onChangeText}
                   value={value.value}
@@ -79,7 +112,7 @@ const SignUp: React.FC<SignUpProps> = ({navigation}) => {
             value={event.isAdmin}
           />
         </View>
-        <TouchableOpacity style={styles.signUpButton}>
+        <TouchableOpacity style={styles.signUpButton} onPress={onSignUpPress}>
           <Text style={styles.signUpButtonText}>{LocalizedString.signUp}</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.loginButton} onPress={onLoginPress}>

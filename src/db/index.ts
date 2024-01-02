@@ -2,9 +2,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {debugLog, debugLogError} from '../utils/helpers/Log';
 
 class LocalStorage {
-  static USER_INFO = 'usr';
-  static WELCOME_VISIBLE = 'wv';
-  static USR_TKN = 'usrtkn';
   static async storeData(key: string, value: any) {
     try {
       const jsonValue = JSON.stringify(value);
