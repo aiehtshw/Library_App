@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
+  StatusBar,
   Text,
   TouchableOpacity,
   View,
@@ -16,6 +17,7 @@ import Searchbar from '../../../components/Searchbar';
 import {Colors} from '../../../utils/colors';
 import BookItem from '../../../components/BookItem';
 import {BookInfo} from '../../../db/Types';
+import {isAndroid} from '../../../utils/config';
 import styles from './styles';
 
 type DashboardProps = NativeStackScreenProps<
@@ -138,6 +140,7 @@ const Dashboard: React.FC<DashboardProps> = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      {isAndroid() && <StatusBar />}
       <View style={styles.content}>
         <Text style={styles.headerText}>
           {LocalizedString.hello} {setGreeting()},
