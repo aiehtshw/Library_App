@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="274a80bb-5d05-4b1d-8ee1-005989c3725d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/splash/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/splash/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/languages/locales/tr.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/languages/locales/tr.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +44,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "nd-splash",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/nejdetdalaslan/Library_App",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
