@@ -1,5 +1,12 @@
 import React from 'react';
-import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  SafeAreaView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {NativeStackScreenProps} from 'react-native-screens/native-stack';
 import {Feather, MaterialCommunityIcons} from '@expo/vector-icons';
 import {BookInfo} from '../../../db/Types';
@@ -9,6 +16,7 @@ import {Colors} from '../../../utils/colors';
 import {useAppSelector} from '../../../redux/store';
 import {UserTypes} from '../../../db/Enums';
 import {BookUtils} from '../../../db/BookUtils';
+import {isAndroid} from '../../../utils/config';
 import styles from './styles';
 
 type BookDetailProps = NativeStackScreenProps<
@@ -32,6 +40,7 @@ const BookDetail: React.FC<BookDetailProps> = ({navigation, route}) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      {isAndroid() && <StatusBar />}
       <View style={styles.content}>
         <Image source={{uri: BOOK_DETAIL.bookCover}} style={styles.photo} />
         <View style={styles.rightSide}>

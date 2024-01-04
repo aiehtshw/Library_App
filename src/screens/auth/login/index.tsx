@@ -1,5 +1,11 @@
 import React, {useReducer} from 'react';
-import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {
+  SafeAreaView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {NativeStackScreenProps} from 'react-native-screens/native-stack';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {AuthScreens, AuthStackParamList} from '../../../navigation/routes';
@@ -16,7 +22,7 @@ import {setUser} from '../../../redux/reducers/user/userSlice';
 import {BookUtils} from '../../../db/BookUtils';
 import {UserTypes} from '../../../db/Enums';
 import {MessageTypes} from '../../../redux/reducers/general/generalnterface';
-import {isIos} from '../../../utils/config';
+import {isAndroid, isIos} from '../../../utils/config';
 import styles from './styles';
 
 type LoginProps = NativeStackScreenProps<AuthStackParamList, AuthScreens.Login>;
@@ -100,6 +106,7 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      {isAndroid() && <StatusBar />}
       <View style={styles.content}>
         <KeyboardAwareScrollView
           contentContainerStyle={

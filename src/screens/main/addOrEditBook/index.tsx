@@ -2,6 +2,7 @@ import React, {useReducer, useState} from 'react';
 import {
   Image,
   SafeAreaView,
+  StatusBar,
   Text,
   TextInput,
   TouchableOpacity,
@@ -21,6 +22,7 @@ import {useAppDispatch} from '../../../redux/store';
 import {addBook} from '../../../redux/reducers/books/booksSlice';
 import {showFlashMessage} from '../../../redux/reducers/general/generalSlice';
 import {MessageTypes} from '../../../redux/reducers/general/generalnterface';
+import {isAndroid} from '../../../utils/config';
 import styles from './styles';
 
 type AddBookProps = NativeStackScreenProps<
@@ -105,7 +107,7 @@ const AddOrEditBook: React.FC<AddBookProps> = ({navigation, route}) => {
           addedBook,
           () => {
             if (navigation.canGoBack()) {
-              dispatch(addBook(addedBook));
+              BookUtils.syncRedux();
               navigation.goBack();
             }
           },
@@ -160,6 +162,7 @@ const AddOrEditBook: React.FC<AddBookProps> = ({navigation, route}) => {
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: Colors.White}}>
+      {isAndroid() && <StatusBar />}
       <KeyboardAwareScrollView>
         <View style={styles.inputArea}>
           {inputAreas.map((value, index) => {

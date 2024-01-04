@@ -1,5 +1,11 @@
 import React, {useReducer} from 'react';
-import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {
+  SafeAreaView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {NativeStackScreenProps} from 'react-native-screens/native-stack';
 import {AuthScreens, AuthStackParamList} from '../../../navigation/routes';
 import {LocalizedString} from '../../../utils/languages';
@@ -15,6 +21,7 @@ import {
   showFlashMessage,
 } from '../../../redux/reducers/general/generalSlice';
 import {MessageTypes} from '../../../redux/reducers/general/generalnterface';
+import {isAndroid} from '../../../utils/config';
 import styles from './styles';
 
 type SignUpProps = NativeStackScreenProps<
@@ -103,6 +110,7 @@ const SignUp: React.FC<SignUpProps> = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      {isAndroid() && <StatusBar />}
       <View style={styles.content}>
         <Text style={styles.headerText}>{LocalizedString.signUp}</Text>
         <View style={styles.inputArea}>
