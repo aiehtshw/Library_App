@@ -2,7 +2,6 @@ import React, {useReducer, useState} from 'react';
 import {
   Image,
   SafeAreaView,
-  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -11,6 +10,7 @@ import {
 import {AntDesign, Entypo} from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import {NativeStackScreenProps} from 'react-native-screens/native-stack';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {Colors} from '../../../utils/colors';
 import {BookInfo} from '../../../db/Types';
 import {LocalizedString} from '../../../utils/languages';
@@ -159,8 +159,8 @@ const AddOrEditBook: React.FC<AddBookProps> = ({navigation, route}) => {
   };
 
   return (
-    <SafeAreaView>
-      <ScrollView>
+    <SafeAreaView style={{flex: 1, backgroundColor: Colors.White}}>
+      <KeyboardAwareScrollView>
         <View style={styles.inputArea}>
           {inputAreas.map((value, index) => {
             return (
@@ -237,7 +237,7 @@ const AddOrEditBook: React.FC<AddBookProps> = ({navigation, route}) => {
             </Text>
           </TouchableOpacity>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 };
