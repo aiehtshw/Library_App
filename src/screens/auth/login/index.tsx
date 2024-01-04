@@ -10,6 +10,8 @@ import {useAppDispatch} from '../../../redux/store';
 import {setIsLoggedIn} from '../../../redux/reducers/general/generalSlice';
 import {setUser} from '../../../redux/reducers/user/userSlice';
 import styles from './styles';
+import LocalStorage from '../../../db';
+import {BookUtils} from '../../../db/BookUtils';
 
 type LoginProps = NativeStackScreenProps<AuthStackParamList, AuthScreens.Login>;
 
@@ -44,6 +46,7 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
     if (event.email && event.password) {
       UserUtils.isValidUser(event.email, event.password, user => {
         if (user) {
+          BookUtils.syncRedux();
           dispatch(setUser(user));
           dispatch(setIsLoggedIn(true));
         } else {

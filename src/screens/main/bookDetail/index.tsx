@@ -1,18 +1,70 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import {NativeStackScreenProps} from 'react-native-screens/native-stack';
 import {MainScreens, MainStackParamList} from '../../../navigation/routes';
+import {BookInfo} from '../../../db/Types';
+import styles from './styles';
+import {LocalizedString} from '../../../utils/languages';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import {Colors} from '../../../utils/colors';
+import {Feather} from '@expo/vector-icons';
+import { useAppSelector } from '../../../redux/store';
+import { UserTypes } from '../../../db/Enums';
+import { BookUtils } from '../../../db/BookUtils';
 
 type BookDetailProps = NativeStackScreenProps<
   MainStackParamList,
   MainScreens.BookDetail
 >;
 
-const BookDetail: React.FC<BookDetailProps> = () => {
+const BookDetail: React.FC<BookDetailProps> = ({navigation, route}) => {
+  const BOOK_DETAIL: BookInfo = route.params.bookInfo;
+  const userState = useAppSelector(state => state.user);
+  const onEditBookPress = () => {
+    navigation.navigate(MainScreens.EditBook, {bookInfo: BOOK_DETAIL});
+  };
+
+  const onDeleteBookPress = () => {
+    BookUtils.deleteFromStorage(BOOK_DETAIL);
+    if(navigation.canGoBack()){
+      navigation.goBack();
+    }
+  }
+
   return (
-    <View>
-      <Text>Empty</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.content}>
+        <Image source={{uri: BOOK_DETAIL.bookCover}} style={styles.photo} />
+        <View style={styles.rightSide}>
+          <Text style={styles.headerText}>{BOOK_DETAIL.name}</Text>
+          {BOOK_DETAIL.author &&
+            BOOK_DETAIL.author.map((item, index) => {
+              return (
+                <View key={index}>
+                  <Text style={styles.authorsText}>* {item}</Text>
+                </View>
+              );
+            })}
+          <Text style={styles.isbnText}>{BOOK_DETAIL.isbn}</Text>
+        </View>
+      </View>
+      <Text style={styles.label}>{LocalizedString.genre}</Text>
+      <Text style={styles.genreText}>* {BOOK_DETAIL.genre}</Text>
+      <Text style={styles.label}>{LocalizedString.description}</Text>
+      <Text style={styles.descriptionText}>{BOOK_DETAIL.description}</Text>
+      {
+        userState.title === UserTypes.User &&
+        <TouchableOpacity style={styles.deleteBook} onPress={onDeleteBookPress}>
+          <MaterialCommunityIcons name="delete" size={24} color={Colors.White} />
+        </TouchableOpacity>
+      }
+      {
+        userState.title !== UserTypes.Guest &&
+        <TouchableOpacity style={styles.editBook} onPress={onEditBookPress}>
+          <Feather name='edit-3' size={24} color={Colors.White} />
+        </TouchableOpacity>
+      }
+    </SafeAreaView>
   );
 };
 
