@@ -53,7 +53,7 @@ const BookDetail: React.FC<BookDetailProps> = ({navigation, route}) => {
       <Text style={styles.label}>{LocalizedString.description}</Text>
       <Text style={styles.descriptionText}>{BOOK_DETAIL.description}</Text>
       {
-        userState.title === UserTypes.User &&
+        userState.title === UserTypes.Admin &&
         <TouchableOpacity style={styles.deleteBook} onPress={onDeleteBookPress}>
           <MaterialCommunityIcons name="delete" size={24} color={Colors.White} />
         </TouchableOpacity>

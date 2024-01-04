@@ -19,6 +19,8 @@ const DashboardTexts = {
 };
 
 const Labels = {
+  continueWithAdmin: 'Admin olarak devam et',
+  continueWithGuest: 'Misafir olarak devam et',
   eMail: 'E-mail',
   login: 'Giriş Yap',
   signUp: 'Kayıt Ol',

@@ -12,6 +12,7 @@ import {setUser} from '../../../redux/reducers/user/userSlice';
 import styles from './styles';
 import LocalStorage from '../../../db';
 import {BookUtils} from '../../../db/BookUtils';
+import { UserTypes } from '../../../db/Enums';
 
 type LoginProps = NativeStackScreenProps<AuthStackParamList, AuthScreens.Login>;
 
@@ -41,6 +42,21 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
       value: event.password,
     },
   ];
+
+  const onContinueWithAdminPress = () => {
+    BookUtils.syncRedux();dispatch(setUser({
+      title: UserTypes.Admin,
+    }))
+    dispatch(setIsLoggedIn(true));
+  }
+
+  const onContinueWithGuestPress = () => {
+    BookUtils.syncRedux();
+    dispatch(setUser({
+      title: UserTypes.Guest,
+    }))
+    dispatch(setIsLoggedIn(true));
+  }
 
   const onLoginPress = () => {
     if (event.email && event.password) {
@@ -82,6 +98,12 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
         </View>
         <TouchableOpacity style={styles.loginButton} onPress={onLoginPress}>
           <Text style={styles.loginButtonText}>{LocalizedString.login}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.signUpButton} onPress={onContinueWithAdminPress}>
+          <Text>{LocalizedString.continueWithAdmin}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.signUpButton} onPress={onContinueWithGuestPress}>
+          <Text>{LocalizedString.continueWithGuest}</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.signUpButton} onPress={onSignUpPress}>
           <Text>{LocalizedString.signUp}</Text>
