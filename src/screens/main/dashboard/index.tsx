@@ -1,16 +1,22 @@
 import React, {useEffect, useState} from 'react';
-import { SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import {
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {NativeStackScreenProps} from 'react-native-screens/native-stack';
+import {AntDesign} from '@expo/vector-icons';
 import {MainScreens, MainStackParamList} from '../../../navigation/routes';
-import styles from './styles';
 import {LocalizedString} from '../../../utils/languages';
 import {useAppSelector} from '../../../redux/store';
 import {Filters, UserTypes} from '../../../db/Enums';
-import {AntDesign} from '@expo/vector-icons';
 import Searchbar from '../../../components/Searchbar';
 import {Colors} from '../../../utils/colors';
 import BookItem from '../../../components/BookItem';
 import {BookInfo} from '../../../db/Types';
+import styles from './styles';
 
 type DashboardProps = NativeStackScreenProps<
   MainStackParamList,
@@ -28,8 +34,8 @@ const Dashboard: React.FC<DashboardProps> = ({navigation}) => {
 
   useEffect(() => {
     setBooks(bookState);
-    setSortDecrease(false)
-    setSortIncrease(false)
+    setSortDecrease(false);
+    setSortIncrease(false);
   }, [bookState]);
 
   useEffect(() => {
@@ -55,14 +61,14 @@ const Dashboard: React.FC<DashboardProps> = ({navigation}) => {
   }, [searchText]);
 
   useEffect(() => {
-    if(sortIncrease){
-      setBooks(sortIncreaseBooks())
-    } else if (sortDecrease){
-      setBooks(sortIncreaseBooks()?.reverse())
+    if (sortIncrease) {
+      setBooks(sortIncreaseBooks());
+    } else if (sortDecrease) {
+      setBooks(sortIncreaseBooks()?.reverse());
     } else {
-      setBooks(bookState)
+      setBooks(bookState);
     }
-  }, [sortDecrease,sortIncrease, chosenFilter]);
+  }, [sortDecrease, sortIncrease, chosenFilter]);
 
   const onAddBookPress = () => {
     navigation.navigate(MainScreens.AddBook);
@@ -92,43 +98,43 @@ const Dashboard: React.FC<DashboardProps> = ({navigation}) => {
   const sortIncreaseBooks = () => {
     switch (chosenFilter) {
       case Filters.Author:
-          return books?.slice().sort((a, b) => {
-            const authorA = (a?.author || []).join(',');
-            const authorB = (b?.author || []).join(',');
-            return authorA.localeCompare(authorB);
-          })
+        return books?.slice().sort((a, b) => {
+          const authorA = (a?.author || []).join(',');
+          const authorB = (b?.author || []).join(',');
+          return authorA.localeCompare(authorB);
+        });
       case Filters.BookName:
-          return books?.slice().sort((a, b) => {
-            const nameA = a?.name || '';
-            const nameB = b?.name || '';
-            return nameA.localeCompare(nameB);
-          })
+        return books?.slice().sort((a, b) => {
+          const nameA = a?.name || '';
+          const nameB = b?.name || '';
+          return nameA.localeCompare(nameB);
+        });
       case Filters.ISBN:
-          return books?.slice().sort((a, b) => {
-            const isbnA = a?.isbn || '';
-            const isbnB = b?.isbn || '';
-            return isbnA.localeCompare(isbnB);
-          })
+        return books?.slice().sort((a, b) => {
+          const isbnA = a?.isbn || '';
+          const isbnB = b?.isbn || '';
+          return isbnA.localeCompare(isbnB);
+        });
     }
-  }
+  };
 
   const startSortDecrease = () => {
-    if(!sortDecrease){
+    if (!sortDecrease) {
       sortIncrease && setSortIncrease(false);
       setSortDecrease(true);
     } else {
       setSortDecrease(false);
     }
-  }
+  };
 
   const startSortIncrease = () => {
-    if(!sortIncrease){
+    if (!sortIncrease) {
       sortDecrease && setSortDecrease(false);
       setSortIncrease(true);
     } else {
       setSortIncrease(false);
     }
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -140,8 +146,8 @@ const Dashboard: React.FC<DashboardProps> = ({navigation}) => {
           <Searchbar
             chosenFilter={chosenFilter}
             setChosenFilter={text => setFilter(text)}
-            setSortDecrease={()=>startSortDecrease()}
-            setSortIncrease={()=>startSortIncrease()}
+            setSortDecrease={() => startSortDecrease()}
+            setSortIncrease={() => startSortIncrease()}
             sortIncrease={sortIncrease}
             sortDecrease={sortDecrease}
             text={searchText}
@@ -177,12 +183,11 @@ const Dashboard: React.FC<DashboardProps> = ({navigation}) => {
           })}
       </ScrollView>
 
-      {
-        userState.title !== UserTypes.Guest &&
+      {userState.title !== UserTypes.Guest && (
         <TouchableOpacity style={styles.addBook} onPress={onAddBookPress}>
-          <AntDesign name='plus' size={24} color={Colors.White} />
+          <AntDesign name="plus" size={24} color={Colors.White} />
         </TouchableOpacity>
-      }
+      )}
     </SafeAreaView>
   );
 };

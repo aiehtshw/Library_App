@@ -1,5 +1,6 @@
-import {Colors} from '../../../utils/colors';
 import {StyleSheet} from 'react-native';
+import {Colors} from '../../../utils/colors';
+
 export default StyleSheet.create({
   addAuthorContainer: {
     alignItems: 'center',

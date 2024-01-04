@@ -1,16 +1,15 @@
 import React from 'react';
 import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import {NativeStackScreenProps} from 'react-native-screens/native-stack';
-import {MainScreens, MainStackParamList} from '../../../navigation/routes';
+import {Feather, MaterialCommunityIcons} from '@expo/vector-icons';
 import {BookInfo} from '../../../db/Types';
-import styles from './styles';
 import {LocalizedString} from '../../../utils/languages';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import {MainScreens, MainStackParamList} from '../../../navigation/routes';
 import {Colors} from '../../../utils/colors';
-import {Feather} from '@expo/vector-icons';
-import { useAppSelector } from '../../../redux/store';
-import { UserTypes } from '../../../db/Enums';
-import { BookUtils } from '../../../db/BookUtils';
+import {useAppSelector} from '../../../redux/store';
+import {UserTypes} from '../../../db/Enums';
+import {BookUtils} from '../../../db/BookUtils';
+import styles from './styles';
 
 type BookDetailProps = NativeStackScreenProps<
   MainStackParamList,
@@ -26,10 +25,10 @@ const BookDetail: React.FC<BookDetailProps> = ({navigation, route}) => {
 
   const onDeleteBookPress = () => {
     BookUtils.deleteFromStorage(BOOK_DETAIL);
-    if(navigation.canGoBack()){
+    if (navigation.canGoBack()) {
       navigation.goBack();
     }
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -52,18 +51,20 @@ const BookDetail: React.FC<BookDetailProps> = ({navigation, route}) => {
       <Text style={styles.genreText}>* {BOOK_DETAIL.genre}</Text>
       <Text style={styles.label}>{LocalizedString.description}</Text>
       <Text style={styles.descriptionText}>{BOOK_DETAIL.description}</Text>
-      {
-        userState.title === UserTypes.Admin &&
+      {userState.title === UserTypes.Admin && (
         <TouchableOpacity style={styles.deleteBook} onPress={onDeleteBookPress}>
-          <MaterialCommunityIcons name="delete" size={24} color={Colors.White} />
+          <MaterialCommunityIcons
+            name="delete"
+            size={24}
+            color={Colors.White}
+          />
         </TouchableOpacity>
-      }
-      {
-        userState.title !== UserTypes.Guest &&
+      )}
+      {userState.title !== UserTypes.Guest && (
         <TouchableOpacity style={styles.editBook} onPress={onEditBookPress}>
-          <Feather name='edit-3' size={24} color={Colors.White} />
+          <Feather name="edit-3" size={24} color={Colors.White} />
         </TouchableOpacity>
-      }
+      )}
     </SafeAreaView>
   );
 };

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { AntDesign, Entypo } from '@expo/vector-icons';
+import React, {useState} from 'react';
+import {Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {AntDesign, Entypo} from '@expo/vector-icons';
+import {Filters} from '../../db/Enums';
+import {LocalizedString} from '../../utils/languages';
+import {Colors} from '../../utils/colors';
 import styles from './styles';
-import { Filters } from '../../db/Enums';
-import { LocalizedString } from '../../utils/languages';
-import { Colors } from '../../utils/colors';
 
 type SearchBarProps = {
   chosenFilter: string;
@@ -54,7 +54,7 @@ const Searchbar: React.FC<SearchBarProps> = ({
           onPress={onFilterPress}
           style={styles.pickerContainer}>
           {isFilterVisible ? (
-            <Entypo name="chevron-up" size={24} color= {Colors.Black} />
+            <Entypo name="chevron-up" size={24} color={Colors.Black} />
           ) : (
             <Entypo name="chevron-down" size={24} color={Colors.Black} />
           )}
@@ -63,12 +63,20 @@ const Searchbar: React.FC<SearchBarProps> = ({
       </View>
       <View style={styles.menu}>
         <TouchableOpacity style={styles.buttons} onPress={setSortDecrease}>
-          <AntDesign name="arrowdown" size={24} color={sortDecrease ? Colors.BluePrimary: Colors.Black} />
+          <AntDesign
+            name="arrowdown"
+            size={24}
+            color={sortDecrease ? Colors.BluePrimary : Colors.Black}
+          />
           <Text>{LocalizedString.decrease}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttons} onPress={setSortIncrease}>
-          <AntDesign name="arrowup" size={24} color={sortIncrease ? Colors.BluePrimary: Colors.Black} />
+          <AntDesign
+            name="arrowup"
+            size={24}
+            color={sortIncrease ? Colors.BluePrimary : Colors.Black}
+          />
           <Text>{LocalizedString.increase}</Text>
         </TouchableOpacity>
         <View style={styles.filterItems}>

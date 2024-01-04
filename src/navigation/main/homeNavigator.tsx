@@ -1,10 +1,10 @@
+import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Button} from 'react-native';
 import {MainScreens, MainStackParamList} from '../routes';
 import Dashboard from '../../screens/main/dashboard';
 import BookDetail from '../../screens/main/bookDetail';
 import AddOrEditBook from '../../screens/main/addOrEditBook';
-import React from 'react';
-import {Button} from 'react-native';
 import {LocalizedString} from '../../utils/languages';
 import {Colors} from '../../utils/colors';
 

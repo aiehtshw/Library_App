@@ -8,19 +8,18 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import InputWithLabel from '../../../components/InputWithLabel';
+import {AntDesign, Entypo} from '@expo/vector-icons';
+import * as ImagePicker from 'expo-image-picker';
+import {NativeStackScreenProps} from 'react-native-screens/native-stack';
+import {Colors} from '../../../utils/colors';
 import {BookInfo} from '../../../db/Types';
 import {LocalizedString} from '../../../utils/languages';
-import * as ImagePicker from 'expo-image-picker';
-import {AntDesign} from '@expo/vector-icons';
-import {Entypo} from '@expo/vector-icons';
-import styles from './styles';
-import {Colors} from '../../../utils/colors';
-import {NativeStackScreenProps} from 'react-native-screens/native-stack';
+import InputWithLabel from '../../../components/InputWithLabel';
 import {MainScreens, MainStackParamList} from '../../../navigation/routes';
 import {BookUtils} from '../../../db/BookUtils';
 import {useAppDispatch} from '../../../redux/store';
-import {addBook, setBooks} from '../../../redux/reducers/books/booksSlice';
+import {addBook} from '../../../redux/reducers/books/booksSlice';
+import styles from './styles';
 
 type AddBookProps = NativeStackScreenProps<
   MainStackParamList,
@@ -129,7 +128,7 @@ const AddOrEditBook: React.FC<AddBookProps> = ({navigation, route}) => {
   };
 
   const onUploadFromDevicePress = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
+    const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [4, 3],

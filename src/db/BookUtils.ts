@@ -1,7 +1,7 @@
-import {BookInfo, UserInfo} from './Types';
-import LocalStorage from './index';
 import store from '../redux/store';
 import {setBooks} from '../redux/reducers/books/booksSlice';
+import {BookInfo} from './Types';
+import LocalStorage from './index';
 
 export class BookUtils {
   private static BKS = 'bks';
@@ -35,7 +35,7 @@ export class BookUtils {
     BookUtils.deleteBook(book);
     store.dispatch(setBooks(this.books));
     LocalStorage.storeData(BookUtils.BKS, this.books);
-  }
+  };
 
   static editBook = (
     newBook: BookInfo,
