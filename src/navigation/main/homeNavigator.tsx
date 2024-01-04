@@ -27,13 +27,18 @@ const HomeNavigator = () => {
           ),
           presentation: 'containedModal',
           animation: 'slide_from_bottom',
+          title: 'Kitap Ekle',
         })}
       />
-      <Stack.Screen name={MainScreens.BookDetail} component={BookDetail} />
+      <Stack.Screen
+        name={MainScreens.BookDetail}
+        component={BookDetail}
+        options={{title: 'Kitap Detay'}}
+      />
       <Stack.Screen
         name={MainScreens.Dashboard}
         component={Dashboard}
-        options={{headerShown: false}}
+        options={{headerShown: false, title: 'Ana Sayfa'}}
       />
       <Stack.Screen
         name={MainScreens.EditBook}
@@ -48,6 +53,7 @@ const HomeNavigator = () => {
           ),
           presentation: 'containedModal',
           animation: 'slide_from_bottom',
+          title: 'Kitap Düzenle',
         })}
       />
     </Stack.Navigator>

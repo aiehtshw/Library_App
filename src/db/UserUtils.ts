@@ -41,10 +41,12 @@ export class UserUtils {
     onCallback: (user: UserInfo | undefined) => void,
   ) => {
     UserUtils.readUser(() => {
-      const foundUser = this.users.find(
-        user => user.email === email && user.password === password,
-      );
-      onCallback(foundUser);
+      if (this.users) {
+        const foundUser = this.users.find(
+          user => user.email === email && user.password === password,
+        );
+        onCallback(foundUser);
+      }
     });
   };
 
