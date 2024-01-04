@@ -10,7 +10,11 @@ import {UserTypes} from '../../../db/Enums';
 import {UserUtils} from '../../../db/UserUtils';
 import {useAppDispatch} from '../../../redux/store';
 import {setUser} from '../../../redux/reducers/user/userSlice';
-import {setIsLoggedIn} from '../../../redux/reducers/general/generalSlice';
+import {
+  setIsLoggedIn,
+  showFlashMessage,
+} from '../../../redux/reducers/general/generalSlice';
+import {MessageTypes} from '../../../redux/reducers/general/generalnterface';
 import styles from './styles';
 
 type SignUpProps = NativeStackScreenProps<
@@ -79,11 +83,21 @@ const SignUp: React.FC<SignUpProps> = ({navigation}) => {
           dispatch(setIsLoggedIn(true));
         },
         () => {
-          //TODO: we have this account
+          dispatch(
+            showFlashMessage({
+              message: LocalizedString.alreadySignUp,
+              messageType: MessageTypes.Fail,
+            }),
+          );
         },
       );
     } else {
-      //TODO: error statement
+      dispatch(
+        showFlashMessage({
+          message: LocalizedString.emptyField,
+          messageType: MessageTypes.Fail,
+        }),
+      );
     }
   };
 

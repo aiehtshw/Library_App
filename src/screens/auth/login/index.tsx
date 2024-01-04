@@ -7,10 +7,14 @@ import {LoginInputTypes} from '../../../db/Types';
 import InputWithLabel from '../../../components/InputWithLabel';
 import {UserUtils} from '../../../db/UserUtils';
 import {useAppDispatch} from '../../../redux/store';
-import {setIsLoggedIn} from '../../../redux/reducers/general/generalSlice';
+import {
+  setIsLoggedIn,
+  showFlashMessage,
+} from '../../../redux/reducers/general/generalSlice';
 import {setUser} from '../../../redux/reducers/user/userSlice';
 import {BookUtils} from '../../../db/BookUtils';
 import {UserTypes} from '../../../db/Enums';
+import {MessageTypes} from '../../../redux/reducers/general/generalnterface';
 import styles from './styles';
 
 type LoginProps = NativeStackScreenProps<AuthStackParamList, AuthScreens.Login>;
@@ -70,11 +74,21 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
           dispatch(setUser(user));
           dispatch(setIsLoggedIn(true));
         } else {
-          //TODO: error statement
+          dispatch(
+            showFlashMessage({
+              message: LocalizedString.invalidLogin,
+              messageType: MessageTypes.Fail,
+            }),
+          );
         }
       });
     } else {
-      //TODO: error statement
+      dispatch(
+        showFlashMessage({
+          message: LocalizedString.emptyField,
+          messageType: MessageTypes.Fail,
+        }),
+      );
     }
   };
 
