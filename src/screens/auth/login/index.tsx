@@ -1,6 +1,7 @@
 import React, {useReducer} from 'react';
 import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import {NativeStackScreenProps} from 'react-native-screens/native-stack';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {AuthScreens, AuthStackParamList} from '../../../navigation/routes';
 import {LocalizedString} from '../../../utils/languages';
 import {LoginInputTypes} from '../../../db/Types';
@@ -15,6 +16,7 @@ import {setUser} from '../../../redux/reducers/user/userSlice';
 import {BookUtils} from '../../../db/BookUtils';
 import {UserTypes} from '../../../db/Enums';
 import {MessageTypes} from '../../../redux/reducers/general/generalnterface';
+import {isIos} from '../../../utils/config';
 import styles from './styles';
 
 type LoginProps = NativeStackScreenProps<AuthStackParamList, AuthScreens.Login>;
@@ -99,37 +101,42 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.headerText}>{LocalizedString.login}</Text>
-        <View style={styles.inputArea}>
-          {inputAreas.map((value, index) => {
-            return (
-              <View key={index}>
-                <InputWithLabel
-                  isPassword={value.isPassword}
-                  label={value.label}
-                  onChangeText={value.onChangeText}
-                  value={value.value}
-                />
-              </View>
-            );
-          })}
-        </View>
-        <TouchableOpacity style={styles.loginButton} onPress={onLoginPress}>
-          <Text style={styles.loginButtonText}>{LocalizedString.login}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.signUpButton}
-          onPress={onContinueWithAdminPress}>
-          <Text>{LocalizedString.continueWithAdmin}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.signUpButton}
-          onPress={onContinueWithGuestPress}>
-          <Text>{LocalizedString.continueWithGuest}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.signUpButton} onPress={onSignUpPress}>
-          <Text>{LocalizedString.signUp}</Text>
-        </TouchableOpacity>
+        <KeyboardAwareScrollView
+          contentContainerStyle={
+            isIos() && {justifyContent: 'center', height: '100%'}
+          }>
+          <Text style={styles.headerText}>{LocalizedString.login}</Text>
+          <View style={styles.inputArea}>
+            {inputAreas.map((value, index) => {
+              return (
+                <View key={index}>
+                  <InputWithLabel
+                    isPassword={value.isPassword}
+                    label={value.label}
+                    onChangeText={value.onChangeText}
+                    value={value.value}
+                  />
+                </View>
+              );
+            })}
+          </View>
+          <TouchableOpacity style={styles.loginButton} onPress={onLoginPress}>
+            <Text style={styles.loginButtonText}>{LocalizedString.login}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.signUpButton}
+            onPress={onContinueWithAdminPress}>
+            <Text>{LocalizedString.continueWithAdmin}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.signUpButton}
+            onPress={onContinueWithGuestPress}>
+            <Text>{LocalizedString.continueWithGuest}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.signUpButton} onPress={onSignUpPress}>
+            <Text>{LocalizedString.signUp}</Text>
+          </TouchableOpacity>
+        </KeyboardAwareScrollView>
       </View>
     </SafeAreaView>
   );

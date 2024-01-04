@@ -34,7 +34,6 @@ export default StyleSheet.create({
   },
 
   inputArea: {
-    backgroundColor: Colors.White,
     borderRadius: 8,
     marginTop: 20,
     padding: 10,

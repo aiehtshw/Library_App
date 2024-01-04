@@ -1,6 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Button} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import {MainScreens, MainStackParamList} from '../routes';
 import Dashboard from '../../screens/main/dashboard';
 import BookDetail from '../../screens/main/bookDetail';
@@ -17,12 +17,13 @@ const HomeNavigator = () => {
         name={MainScreens.AddBook}
         component={AddOrEditBook}
         options={({navigation}) => ({
+          headerTitleAlign: 'center',
           headerLeft: () => (
-            <Button
+            <TouchableOpacity
               onPress={() => navigation.goBack()}
-              title={LocalizedString.back}
-              color="#000"
-            />
+              style={{backgroundColor: Colors.White}}>
+              <Text style={{fontSize: 15}}>{LocalizedString.back}</Text>
+            </TouchableOpacity>
           ),
           presentation: 'containedModal',
           animation: 'slide_from_bottom',
@@ -39,11 +40,11 @@ const HomeNavigator = () => {
         component={AddOrEditBook}
         options={({navigation}) => ({
           headerLeft: () => (
-            <Button
+            <TouchableOpacity
               onPress={() => navigation.goBack()}
-              title={LocalizedString.back}
-              color={Colors.Black}
-            />
+              style={{backgroundColor: Colors.White}}>
+              <Text>{LocalizedString.back}</Text>
+            </TouchableOpacity>
           ),
           presentation: 'containedModal',
           animation: 'slide_from_bottom',
