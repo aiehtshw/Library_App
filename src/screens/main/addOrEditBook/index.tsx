@@ -19,6 +19,8 @@ import {MainScreens, MainStackParamList} from '../../../navigation/routes';
 import {BookUtils} from '../../../db/BookUtils';
 import {useAppDispatch} from '../../../redux/store';
 import {addBook} from '../../../redux/reducers/books/booksSlice';
+import {showFlashMessage} from '../../../redux/reducers/general/generalSlice';
+import {MessageTypes} from '../../../redux/reducers/general/generalnterface';
 import styles from './styles';
 
 type AddBookProps = NativeStackScreenProps<
@@ -90,7 +92,12 @@ const AddOrEditBook: React.FC<AddBookProps> = ({navigation, route}) => {
             navigation.navigate(MainScreens.BookDetail, {bookInfo: addedBook});
           },
           () => {
-            //TODO: Not edited
+            dispatch(
+              showFlashMessage({
+                message: LocalizedString.notEdited,
+                messageType: MessageTypes.Fail,
+              }),
+            );
           },
         );
       } else {
@@ -103,10 +110,22 @@ const AddOrEditBook: React.FC<AddBookProps> = ({navigation, route}) => {
             }
           },
           () => {
-            //TODO: error statement
+            dispatch(
+              showFlashMessage({
+                message: LocalizedString.alreadyAdded,
+                messageType: MessageTypes.Fail,
+              }),
+            );
           },
         );
       }
+    } else {
+      dispatch(
+        showFlashMessage({
+          message: LocalizedString.emptyField,
+          messageType: MessageTypes.Fail,
+        }),
+      );
     }
   };
 

@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import Root from './src/navigation/root';
 import store from './src/redux/store';
+import FlashMessage from './src/components/FlashMessage';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <SafeAreaProvider>
         <NavigationContainer>
           <Root />
+          <FlashMessage />
         </NavigationContainer>
       </SafeAreaProvider>
     </Provider>

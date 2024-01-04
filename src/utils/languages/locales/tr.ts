@@ -38,7 +38,12 @@ const SignUpTexts = {
 };
 
 export default {
+  alreadySignUp: 'Bu e-mail adresi kullanılmaktadır',
+  alreadyAdded: 'Bu isbn kullanılıyor',
   back: 'Geri',
+  emptyField: 'Lütfen gerekli bilgileri doldurunuz',
+  invalidLogin: 'Yanlış şifre veya e-mail girişi',
+  notEdited: 'Kitap düzenlenemedi',
   ...AddOrEditBookTexts,
   ...DashboardTexts,
   ...Labels,
