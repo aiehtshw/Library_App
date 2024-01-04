@@ -44,6 +44,7 @@ export default {
   emptyField: 'Lütfen gerekli bilgileri doldurunuz',
   invalidLogin: 'Yanlış şifre veya e-mail girişi',
   notEdited: 'Kitap düzenlenemedi',
+  welcome: 'Welcome to Library App',
   ...AddOrEditBookTexts,
   ...DashboardTexts,
   ...Labels,
