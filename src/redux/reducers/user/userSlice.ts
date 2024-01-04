@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 import {UserInfo} from '../../../db/Types';
 import {UserTypes} from '../../../db/Enums';
 
-const REDUCER_NAME = 'General';
+const REDUCER_NAME = 'User';
 
 const initialState: UserInfo = {
   email: '',

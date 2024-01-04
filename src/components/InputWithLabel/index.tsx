@@ -7,6 +7,7 @@ type InputWithLabelProps = {
   label: string;
   onChangeText?: (text: string) => void;
   value?: string;
+  editable?: boolean;
 };
 
 const InputWithLabel: React.FC<InputWithLabelProps> = ({
@@ -14,12 +15,14 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
   label,
   onChangeText,
   value,
+  editable,
 }) => {
   return (
     <>
       <Text style={styles.label}>{label}</Text>
       <View style={styles.inputContainer}>
         <TextInput
+          editable={editable}
           value={value}
           onChangeText={onChangeText}
           autoCapitalize="none"

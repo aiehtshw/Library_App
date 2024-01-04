@@ -1,5 +1,18 @@
 import {UserTypes} from './Enums';
 
+export type BookInfo = {
+  author?: string[];
+  description?: string;
+  genre?: string;
+  name?: string;
+  isbn?: string;
+  bookCover?: string;
+};
+
+export type BooksInfo = {
+  books: BookInfo[];
+};
+
 export type LoginInputTypes = {
   email?: string;
   password?: string;

@@ -1,3 +1,5 @@
+import {BookInfo} from '../db/Types';
+
 export const AUTH_NAVIGATOR = 'AuthNavigator';
 export const HOME_NAVIGATOR = 'TabNavigator';
 
@@ -14,11 +16,15 @@ export type AuthStackParamList = {
 };
 
 export enum MainScreens {
+  AddBook = 'AddBook',
   BookDetail = 'BookDetail',
   Dashboard = 'Dashboard',
+  EditBook = 'EditBook',
 }
 
 export type MainStackParamList = {
-  BookDetail: undefined;
+  AddBook: undefined;
+  BookDetail: {bookInfo: BookInfo};
   Dashboard: undefined;
+  EditBook: {bookInfo: BookInfo};
 };

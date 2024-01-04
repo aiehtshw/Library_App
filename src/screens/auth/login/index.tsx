@@ -9,6 +9,8 @@ import {UserUtils} from '../../../db/UserUtils';
 import {useAppDispatch} from '../../../redux/store';
 import {setIsLoggedIn} from '../../../redux/reducers/general/generalSlice';
 import {setUser} from '../../../redux/reducers/user/userSlice';
+import {BookUtils} from '../../../db/BookUtils';
+import {UserTypes} from '../../../db/Enums';
 import styles from './styles';
 
 type LoginProps = NativeStackScreenProps<AuthStackParamList, AuthScreens.Login>;
@@ -40,10 +42,31 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
     },
   ];
 
+  const onContinueWithAdminPress = () => {
+    BookUtils.syncRedux();
+    dispatch(
+      setUser({
+        title: UserTypes.Admin,
+      }),
+    );
+    dispatch(setIsLoggedIn(true));
+  };
+
+  const onContinueWithGuestPress = () => {
+    BookUtils.syncRedux();
+    dispatch(
+      setUser({
+        title: UserTypes.Guest,
+      }),
+    );
+    dispatch(setIsLoggedIn(true));
+  };
+
   const onLoginPress = () => {
     if (event.email && event.password) {
       UserUtils.isValidUser(event.email, event.password, user => {
         if (user) {
+          BookUtils.syncRedux();
           dispatch(setUser(user));
           dispatch(setIsLoggedIn(true));
         } else {
@@ -79,6 +102,16 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
         </View>
         <TouchableOpacity style={styles.loginButton} onPress={onLoginPress}>
           <Text style={styles.loginButtonText}>{LocalizedString.login}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.signUpButton}
+          onPress={onContinueWithAdminPress}>
+          <Text>{LocalizedString.continueWithAdmin}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.signUpButton}
+          onPress={onContinueWithGuestPress}>
+          <Text>{LocalizedString.continueWithGuest}</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.signUpButton} onPress={onSignUpPress}>
           <Text>{LocalizedString.signUp}</Text>
