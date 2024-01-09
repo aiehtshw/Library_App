@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="274a80bb-5d05-4b1d-8ee1-005989c3725d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/db/Enums.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/Enums.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
