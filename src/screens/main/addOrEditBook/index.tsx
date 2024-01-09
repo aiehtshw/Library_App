@@ -31,9 +31,12 @@ type AddBookProps = NativeStackScreenProps<
 >;
 
 const AddOrEditBook: React.FC<AddBookProps> = ({navigation, route}) => {
+  // Retrieve the book detail if available from route params
   const BOOK_DETAIL = route.params?.bookInfo;
 
   const dispatch = useAppDispatch();
+
+  // Using useReducer for managing book information state
   const [event, updateEvent] = useReducer(
     (prev: BookInfo, next: BookInfo) => {
       return {...prev, ...next};
@@ -47,6 +50,8 @@ const AddOrEditBook: React.FC<AddBookProps> = ({navigation, route}) => {
       bookCover: BOOK_DETAIL?.bookCover ?? '',
     },
   );
+
+  // Using useState to manage author input state
   const [author, setAuthor] = useState<string>('');
   const inputAreas = [
     {
@@ -69,6 +74,7 @@ const AddOrEditBook: React.FC<AddBookProps> = ({navigation, route}) => {
     },
   ];
 
+  // Function handling addition or editing of a book
   const onAddOrEditBookPress = () => {
     if (
       event.isbn &&
@@ -131,6 +137,7 @@ const AddOrEditBook: React.FC<AddBookProps> = ({navigation, route}) => {
     }
   };
 
+  // Function handling addition of an author
   const onAddAuthorPress = () => {
     if (event.author) {
       const updatedAuthors = [...event.author, author];
@@ -139,6 +146,7 @@ const AddOrEditBook: React.FC<AddBookProps> = ({navigation, route}) => {
     }
   };
 
+  // Function handling deletion of an author
   const onDeleteAuthorPress = (author: string) => {
     let temp = event.author;
 
@@ -148,6 +156,7 @@ const AddOrEditBook: React.FC<AddBookProps> = ({navigation, route}) => {
     }
   };
 
+  // Function handling image upload from device
   const onUploadFromDevicePress = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,

@@ -26,20 +26,25 @@ type DashboardProps = NativeStackScreenProps<
 >;
 
 const Dashboard: React.FC<DashboardProps> = ({navigation}) => {
+  // Accessing user and book state from Redux store
   const userState = useAppSelector(state => state.user);
   const bookState = useAppSelector(state => state.book.books);
+
+  // State variables for search, books, filters, and sorting
   const [searchText, setSearchText] = useState<string>('');
   const [books, setBooks] = useState<BookInfo[]>();
   const [chosenFilter, setChosenFilter] = useState<Filters>(Filters.BookName);
   const [sortIncrease, setSortIncrease] = useState<boolean>(false);
   const [sortDecrease, setSortDecrease] = useState<boolean>(false);
 
+  // useEffect to update books when bookState changes
   useEffect(() => {
     setBooks(bookState);
     setSortDecrease(false);
     setSortIncrease(false);
   }, [bookState]);
 
+  // useEffect to filter books based on search text and chosen filter
   useEffect(() => {
     if (searchText) {
       switch (chosenFilter) {
@@ -62,6 +67,7 @@ const Dashboard: React.FC<DashboardProps> = ({navigation}) => {
     }
   }, [searchText]);
 
+  // useEffect to sort books based on chosen filter and sorting direction
   useEffect(() => {
     if (sortIncrease) {
       setBooks(sortIncreaseBooks());
@@ -72,20 +78,24 @@ const Dashboard: React.FC<DashboardProps> = ({navigation}) => {
     }
   }, [sortDecrease, sortIncrease, chosenFilter]);
 
+  // Function to handle navigation to the AddBook screen
   const onAddBookPress = () => {
     navigation.navigate(MainScreens.AddBook);
   };
 
+  // Function to handle navigation to BookDetail when a book item is pressed
   const onBookItemPress = (item: BookInfo) => {
     if (books) {
       navigation.navigate(MainScreens.BookDetail, {bookInfo: item});
     }
   };
 
+  // Function to set the chosen filter for search
   const setFilter = (chosen: Filters) => {
     setChosenFilter(chosen);
   };
 
+  // Function to set greeting based on user type
   const setGreeting = (): string => {
     switch (userState.title) {
       case UserTypes.User:
@@ -97,6 +107,7 @@ const Dashboard: React.FC<DashboardProps> = ({navigation}) => {
     }
   };
 
+  // Function to sort books in ascending order
   const sortIncreaseBooks = () => {
     switch (chosenFilter) {
       case Filters.Author:
@@ -120,6 +131,7 @@ const Dashboard: React.FC<DashboardProps> = ({navigation}) => {
     }
   };
 
+  // Function to handle sorting directions
   const startSortDecrease = () => {
     if (!sortDecrease) {
       sortIncrease && setSortIncrease(false);
@@ -129,6 +141,7 @@ const Dashboard: React.FC<DashboardProps> = ({navigation}) => {
     }
   };
 
+  // Function to handle sorting directions
   const startSortIncrease = () => {
     if (!sortIncrease) {
       sortDecrease && setSortDecrease(false);
