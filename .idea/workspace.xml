@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="274a80bb-5d05-4b1d-8ee1-005989c3725d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/main/addOrEditBook/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/main/addOrEditBook/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/main/bookDetail/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/main/bookDetail/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/main/dashboard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/main/dashboard/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/splash/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/helpers/Log.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helpers/Log.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +49,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "nd-addingComments",
     "last_opened_file_path": "/Users/nejdetdalaslan/Library_App",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",

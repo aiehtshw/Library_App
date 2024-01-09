@@ -15,6 +15,7 @@ const userSlice = createSlice({
   name: REDUCER_NAME,
   initialState,
   reducers: {
+    // Reducer function to set the entire user information
     setUser: (state, action) => {
       return action.payload;
     },

@@ -25,12 +25,16 @@ type BookDetailProps = NativeStackScreenProps<
 >;
 
 const BookDetail: React.FC<BookDetailProps> = ({navigation, route}) => {
+  // Retrieve the book detail from route params
   const BOOK_DETAIL: BookInfo = route.params.bookInfo;
   const userState = useAppSelector(state => state.user);
+
+  // Function handling the navigation to edit the book
   const onEditBookPress = () => {
     navigation.navigate(MainScreens.EditBook, {bookInfo: BOOK_DETAIL});
   };
 
+  // Function handling the deletion of the book
   const onDeleteBookPress = () => {
     BookUtils.deleteFromStorage(BOOK_DETAIL);
     if (navigation.canGoBack()) {
