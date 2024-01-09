@@ -9,6 +9,8 @@ import {MessageTypes} from '../../redux/reducers/general/generalnterface';
 const FlashMessage = () => {
   const generalState = useAppSelector(state => state.general);
   const dispatch = useAppDispatch();
+
+  // Effect to handle message hiding after a set duration
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
 
@@ -17,12 +19,13 @@ const FlashMessage = () => {
         dispatch(hideFlashMessage());
       }, 4000);
     }
-
+    // Clean up the timeout when component unmounts or when flash message changes
     return () => {
       clearTimeout(timeoutId);
     };
   }, [generalState.flashMessage]);
 
+  // Function to determine the icon based on message type
   const getIcon = () => {
     switch (generalState.flashMessage.messageType) {
       case MessageTypes.Success:
