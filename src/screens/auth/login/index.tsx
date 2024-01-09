@@ -29,6 +29,8 @@ type LoginProps = NativeStackScreenProps<AuthStackParamList, AuthScreens.Login>;
 
 const Login: React.FC<LoginProps> = ({navigation}) => {
   const dispatch = useAppDispatch();
+
+  // Using useReducer for managing login form inputs
   const [event, updateEvent] = useReducer(
     (prev: LoginInputTypes, next: LoginInputTypes) => {
       return {...prev, ...next};
@@ -54,6 +56,7 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
     },
   ];
 
+  // Function handling login with admin credentials
   const onContinueWithAdminPress = () => {
     BookUtils.syncRedux();
     dispatch(
@@ -64,6 +67,7 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
     dispatch(setIsLoggedIn(true));
   };
 
+  // Function handling login with guest credentials
   const onContinueWithGuestPress = () => {
     BookUtils.syncRedux();
     dispatch(
@@ -74,6 +78,7 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
     dispatch(setIsLoggedIn(true));
   };
 
+  // Function handling login button press
   const onLoginPress = () => {
     if (event.email && event.password) {
       UserUtils.isValidUser(event.email, event.password, user => {
@@ -100,6 +105,7 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
     }
   };
 
+  // Function handling sign up button press
   const onSignUpPress = () => {
     navigation.navigate(AuthScreens.SignUp);
   };

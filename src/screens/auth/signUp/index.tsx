@@ -31,6 +31,8 @@ type SignUpProps = NativeStackScreenProps<
 
 const SignUp: React.FC<SignUpProps> = ({navigation}) => {
   const dispatch = useAppDispatch();
+
+  // Using useReducer for managing signup form inputs
   const [event, updateEvent] = useReducer(
     (prev: SignUpInputTypes, next: SignUpInputTypes) => {
       return {...prev, ...next};
@@ -64,17 +66,20 @@ const SignUp: React.FC<SignUpProps> = ({navigation}) => {
     },
   ];
 
+  // Function handling checkbox press to toggle admin status
   const onCheckPress = () => {
     updateEvent({isAdmin: !event.isAdmin});
     console.log(event.isAdmin);
   };
 
+  // Function handling login button press to navigate back
   const onLoginPress = () => {
     if (navigation.canGoBack()) {
       navigation.goBack();
     }
   };
 
+  // Function handling signup button press
   const onSignUpPress = () => {
     if (event.email && event.password && event.userName) {
       const userInfo: UserInfo = {
