@@ -11,9 +11,11 @@ const booksSlice = createSlice({
   name: REDUCER_NAME,
   initialState,
   reducers: {
+    // Reducer function to add a book to the state
     addBook: (state, action) => {
       state.books.push(action.payload);
     },
+    // Reducer function to set the entire books array
     setBooks: (state, action) => {
       state.books = action.payload;
     },
