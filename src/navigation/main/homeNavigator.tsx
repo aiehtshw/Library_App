@@ -10,6 +10,10 @@ import {Colors} from '../../utils/colors';
 
 const Stack = createNativeStackNavigator<MainStackParamList>();
 
+/**
+ * Navigator handling screens within the main section of the application.
+ * It includes Dashboard, BookDetail, AddOrEditBook, and EditBook screens.
+ */
 const HomeNavigator = () => {
   return (
     <Stack.Navigator initialRouteName={MainScreens.Dashboard}>

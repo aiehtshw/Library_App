@@ -6,6 +6,10 @@ import SignUp from '../../screens/auth/signUp';
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
+/**
+ * Authentication navigator handling the flow of authentication screens.
+ * It includes login, sign up, and forgot password screens.
+ */
 const AuthNavigator = () => {
   return (
     <Stack.Navigator

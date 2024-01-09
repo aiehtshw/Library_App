@@ -1,5 +1,6 @@
 import {BookInfo} from '../db/Types';
 
+// Constants defining names for navigators
 export const AUTH_NAVIGATOR = 'AuthNavigator';
 export const HOME_NAVIGATOR = 'TabNavigator';
 
